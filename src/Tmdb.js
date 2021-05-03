@@ -1,3 +1,5 @@
+// Requisições a API
+
 const API_KEY = '995218b99c36c95799f167e192bb6983';
 const API_BASE = 'https://api.themoviedb.org/3';
 
@@ -13,7 +15,7 @@ export default {
             {
                 slug: 'originals',
                 title: 'Oroginais do Netflix',
-                items: await basicFetch(`/discover/tv?whith_network=213&language=pt-BR&api_key=${API_KEY}`)
+                items: await basicFetch(`/discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`)
             },
             {
                 slug: 'trending',
@@ -50,6 +52,28 @@ export default {
                 title: 'Documentário',
                 items: await basicFetch(`/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
             },
-        ]
+        ];
+    },
+    getMovieInfo: async (movieId, type) => {
+        let info = {};
+
+        if (movieId) {
+            switch (type) {
+                case 'movie':
+                    info = await basicFetch(`/movie/${movieId}?language=pt-br&api_key=${API_KEY}`)
+                    break;
+                case 'tv':
+                    info = await basicFetch(`/tv/${movieId}?language=pt-br&api_key=${API_KEY}`)
+                    break;
+                default:
+                    info = null;
+                    break;
+
+            }
+
+        }
+
+        return info;
+
     }
 }

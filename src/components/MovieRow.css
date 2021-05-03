@@ -1,0 +1,26 @@
+.movieRow{
+ margin-bottom: 30px;   
+}
+.movieRow h2{
+    margin: 0 0 0 30px;
+}
+.movieRow--listarea {
+    overflow-x: hidden;   /* TUDO QUE PASSAR DA TELA NA HORIZONTAL VAI SER CORTADO */
+    padding-left: 30px;
+}
+.movieRow--list{
+    width: 9999999px;
+}
+.movieRow--item{
+    display: inline-block;  /* ITEM AO LADO DO OUTRO */
+    width: 150px;
+    cursor: pointer;
+}
+.movieRow--item img{
+    width: 100%;
+    transform: scale(0.9); /* EFEITO DE ESCALA, DOMINUI PARA 90% IMG*/
+    transition: all ease 0.5s;  /* EFEITO DE TRANSICAO */
+}
+.movieRow--item img:hover{
+    transform: scale(1);  /* EFEITO DE ESCALA, AUMENTA PARA 100% IMG EM HOVER */
+}
